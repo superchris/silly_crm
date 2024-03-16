@@ -2,6 +2,8 @@ defmodule SillyCrm.People.Person do
   use Ecto.Schema
   import Ecto.Changeset
 
+  @derive {Jason.Encoder, except: [:__meta__]}
+
   schema "people" do
     field :birth_date, :date
     field :first_name, :string

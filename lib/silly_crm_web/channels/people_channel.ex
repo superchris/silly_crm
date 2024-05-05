@@ -30,7 +30,6 @@ defmodule SillyCrmWeb.PeopleChannel do
 
   def handle_event("save-person", attrs, %{person: %{id: person_id} = person} = state)
       when not is_nil(person_id) do
-    IO.inspect(attrs, label: "Person attrs")
 
     with person <- People.get_person!(person_id),
          {:ok, saved_person} <- People.update_person(person, attrs) do
